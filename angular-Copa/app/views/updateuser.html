@@ -1,0 +1,41 @@
+<md-dialog aria-label="Update user">
+  <form ng-cloak>
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <h2>{{user.Email}}</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+          <form>
+            <md-input-container class="md-icon-float md-block" >
+                <label>Name</label>
+                <input ng-model="user.Name" type="text" required>
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block" >
+                <label>Last Name</label>
+                <input ng-model="user.LastName" type="text" required>
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block" >
+                <label>Password</label>
+                <input ng-model="user.Password" type="password" required>
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block" >
+                <label>Password confirmation</label>
+                <input ng-model="user.Password" type="password" required>
+            </md-input-container>
+          </form>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button ng md-autofocus ng-click="Cancel()">
+        Cancel
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="Save()">
+        Save
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
