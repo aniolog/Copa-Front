@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/morris.js/morris.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-notification/dist/angular-ui-notification.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <link rel="manifest" href="manifest.json">
+  </head>
+  
+  <body ng-app="providerApp" ng-class="bodyClass"  ng-controller="IndexCtrl" >
+        <div class="container body" ng-show="isUserLoggedIn()" ng-cloak>
+		      <div class="main_container">
+		        <div class="col-md-3 left_col">
+		          <div class="left_col scroll-view">
+		            <div class="navbar nav_title" style="border: 0;">
+		              <a href="#" class="site_title"><i class="fa fa-street-view"></i> <span>Transport</span></a>
+		            </div>
+		            <div class="clearfix"></div>
+		            <!-- sidebar menu -->
+		            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+		              <div class="menu_section">
+		          
+		                <ul class="nav side-menu">
+		                  <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+		                  <li><a><i class="fa fa-calendar"></i> A&ntildeo escolar <span class="fa fa-chevron-down"></span></a>
+		                    <ul class="nav child_menu">
+		                      <li><a href="#">Nuevo a&ntildeo escolar</a></li>
+		                    </ul>
+		                  </li>
+		                  <li><a><i class="fa fa-child"></i> Alumnos <span class="fa fa-chevron-down"></span></a>
+		                    <ul class="nav child_menu">
+		                      <li><a href="#">Nuevo Alumno</a></li>
+		                  	  <li><a href="#">Consultar estudiante</a></li>
+		                    </ul>
+		                  </li>
+		                  <li><a><i class="fa fa-users"></i> Salon de clase <span class="fa fa-chevron-down"></span></a>
+		                    <ul class="nav child_menu">
+		                      <li><a href="#">Nuevo salon</a></li>
+		                    </ul>
+		                  </li>
+		                </ul>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		
+		        <!-- top navigation -->
+		        <div class="top_nav">
+		          <div class="nav_menu">
+		            <nav>
+		              <div class="nav toggle">
+		                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+		              </div>
+                  
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    John Doe
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;"> Profile</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span>Settings</span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">Help</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green" ng-show="{{getBadge()>0}}">{{getBadge()}}</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><i class="fa fa-map-marker" /></i></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li> 
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+		            </nav>
+		          </div>
+		        </div>
+		        <!-- /top navigation -->
+		
+		        <!-- page content -->
+		        <div class="right_col" role="main">
+				      <div class="row">
+		            <div class="container">
+                  <div ng-view=""></div>
+                </div>
+		          </div>
+		        </div>
+		        <!-- /page content -->
+		
+		        <!-- footer content -->
+		        <footer>
+	
+		            FOOTER
+
+		        </footer>
+		        <!-- /footer content -->
+		      </div>
+		    </div>
+        <div ng-if="!(isUserLoggedIn())">
+            <div class="container">
+                  <div ng-view=""></div>
+                </div>
+        </div>
+
+
+
+    
+
+
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-websocket/dist/angular-websocket.js"></script>
+    <script src="bower_components/bootstrap-progressbar/bootstrap-progressbar.js"></script>
+    <script src="bower_components/jquery-sparkline/dist/jquery.sparkline.js"></script>
+    <script src="bower_components/eve-raphael/eve.js"></script>
+    <script src="bower_components/raphael/raphael.min.js"></script>
+    <script src="bower_components/mocha/mocha.js"></script>
+    <script src="bower_components/morris.js/morris.js"></script>
+    <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/services/userservice.js"></script>
+        <script src="scripts/services/interceptorservice.js"></script>
+        <script src="scripts/factories/mapfactory.js"></script>
+        <script src="scripts/factories/routefactory.js"></script>
+        <script src="scripts/constants/base_url.js"></script>
+        <script src="scripts/constants/websocket_url.js"></script>
+        <script src="scripts/constants/pushapi_key.js"></script>
+        <script src="scripts/custom.js"></script>
+        <script src="scripts/controllers/index.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/dash.js"></script>
+        <script src="scripts/factories/notificationfactory.js"></script>
+        <script src="scripts/services/deviceservice.js"></script>
+        <script src="scripts/services/websocketservice.js"></script>
+        <script src="scripts/controllers/settings.js"></script>
+        <script src="scripts/controllers/profile.js"></script>
+        <script src="scripts/controllers/help.js"></script>
+        <!-- endbuild -->
+
+
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAJJYLVx6vFBLDO8EUA5RNAPtqIzI27HY0"></script>
+
+
+
+</body>
+</html>
